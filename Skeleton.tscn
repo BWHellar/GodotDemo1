@@ -1,0 +1,85 @@
+[gd_scene load_steps=16 format=3 uid="uid://b65nmg31loay7"]
+
+[ext_resource type="Script" path="res://Skeleton.gd" id="1_5u13s"]
+[ext_resource type="Texture2D" uid="uid://byu47evxbssvl" path="res://gothicvania-cemetery-files/PNG/Sprites/enemy-death/enemy-death-2.png" id="1_ijjct"]
+[ext_resource type="Texture2D" uid="uid://e474ethogsj" path="res://gothicvania-cemetery-files/PNG/Sprites/enemy-death/enemy-death-3.png" id="2_v6wha"]
+[ext_resource type="Texture2D" uid="uid://cov1uks7mxkep" path="res://gothicvania-cemetery-files/PNG/Sprites/enemy-death/enemy-death-4.png" id="3_x71an"]
+[ext_resource type="Texture2D" uid="uid://5kp3q5xb27l2" path="res://gothicvania-cemetery-files/PNG/Sprites/enemy-death/enemy-death-5.png" id="4_vccnc"]
+[ext_resource type="Texture2D" uid="uid://cvlx51qaape8b" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost/ghost-1.png" id="6_vqgpc"]
+[ext_resource type="Texture2D" uid="uid://c6ro8j2c2vqo4" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost/ghost-2.png" id="7_uil0p"]
+[ext_resource type="Texture2D" uid="uid://c8f4jg65cjpd8" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost/ghost-3.png" id="8_r03qw"]
+[ext_resource type="Texture2D" uid="uid://bqrc8m4keiuok" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost/ghost-4.png" id="9_wtioi"]
+[ext_resource type="Texture2D" uid="uid://cyviuifrfh1i" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost-halo/ghost-halo-1.png" id="10_5452v"]
+[ext_resource type="Texture2D" uid="uid://cvrg5c3u3ljnc" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost-halo/ghost-halo-2.png" id="11_dbpa7"]
+[ext_resource type="Texture2D" uid="uid://rtmlq2exsay8" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost-halo/ghost-halo-3.png" id="12_yye62"]
+[ext_resource type="Texture2D" uid="uid://oow0vabi05ov" path="res://gothicvania-cemetery-files/PNG/Sprites/ghost-halo/ghost-halo-4.png" id="13_xpcfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k5dd"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2vcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ijjct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v6wha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x71an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vccnc")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vqgpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uil0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r03qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wtioi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5452v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dbpa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yye62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xpcfv")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[node name="Frog" type="CharacterBody2D"]
+script = ExtResource("1_5u13s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_8k5dd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, -8)
+scale = Vector2(0.648649, 0.369231)
+sprite_frames = SubResource("SpriteFrames_y2vcy")
+animation = &"Death"
